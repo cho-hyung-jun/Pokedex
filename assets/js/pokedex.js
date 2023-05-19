@@ -108,12 +108,24 @@ leftBtn.addEventListener('click', function () {
 });
 
 rightBtn.addEventListener('click', function () {
-    if (currentId < 1000) {
+    if (currentId < 1010) {
         currentId++;
         getPokemonData(currentId);
         getPokemonSpecies(currentId);
     }
 });
+
+document.addEventListener('keyup', function (e) {
+    if (e.key === "ArrowLeft") {
+        currentId--;
+        getPokemonData(currentId);
+        getPokemonSpecies(currentId);
+    } else if (e.key === "ArrowRight") {
+        currentId++;
+        getPokemonData(currentId);
+        getPokemonSpecies(currentId);
+    }
+})
 
 getPokemonData(1);
 getPokemonSpecies(1);

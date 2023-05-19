@@ -9,17 +9,6 @@
 	font-size: 16px;
 }
 
-@media screen and (max-width: 768px) {
-	:root {
-		font-size: 12px;
-	}
-}
-@media screen and (max-width: 480px) {
-	:root {
-		font-size: 8px;
-	}
-}
-
 * {
 	margin: 0;
 	padding: 0;
@@ -272,4 +261,29 @@ h1 {
 
 #sprite {
 	height: 6.25rem;
+}
+
+@media screen and (max-width: 768px) {
+	:root {
+		font-size: 12px;
+	}
+}
+@media screen and (max-width: 480px) {
+	:root {
+		font-size: 12px;
+	}
+	body {
+		min-width: initial;
+	}
+	#pokedex {
+		width: 95vw;
+		background-color: #d10022;
+		border-radius: 10px;
+		box-shadow: 10px 10px 10px 2px rgba(0, 0, 0, 0.4);
+		padding: 1.25rem;
+	}
+	.separator .left,
+	.separator .right {
+		gap: 4vw;
+	}
 }

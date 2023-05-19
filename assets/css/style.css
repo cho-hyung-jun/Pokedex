@@ -1,0 +1,275 @@
+@font-face {
+	font-family: 'Pokemon-GB';
+	src: url(../fonts/Pokemon-GB.ttf);
+}
+
+:root {
+	--display-color: #6898bd;
+	--dpad-color: #402732;
+	font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+	:root {
+		font-size: 12px;
+	}
+}
+@media screen and (max-width: 480px) {
+	:root {
+		font-size: 8px;
+	}
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 1rem;
+	font-family: 'Pokemon-GB';
+	min-width: 40rem;
+}
+
+body:before {
+	content: '';
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0.4;
+	background-image: url('../images/bg.webp');
+	background-repeat: no-repeat;
+	background-size: cover;
+	z-index: -1;
+}
+
+h1 {
+	font-family: 'Pokemon-Hollow';
+	color: yellow;
+	filter: drop-shadow(0 0 0 blue);
+}
+
+#pokedex {
+	width: 37rem;
+	background-color: #d10022;
+	border-radius: 10px;
+	box-shadow: 10px 10px 10px 2px rgba(0, 0, 0, 0.4);
+	padding: 1.25rem;
+}
+
+.circle {
+	position: relative;
+	width: 3rem;
+	height: 3rem;
+	border-radius: 50%;
+	background: rgb(153, 212, 245);
+	background: radial-gradient(
+		circle at 35% 35%,
+		rgba(32, 152, 254, 1) 11%,
+		rgba(32, 152, 254, 1) 28%,
+		rgba(22, 85, 145, 1) 28%
+	);
+	box-shadow: 0 0 0 2px black, 0 0 0 7px white;
+	margin: 0 1.5rem 1.5rem 0;
+}
+
+.circle-inner {
+	position: absolute;
+	width: 0.75rem;
+	height: 0.75rem;
+	top: 0.55rem;
+	left: 0.55rem;
+	border-radius: 50%;
+	background-color: white;
+}
+
+.display-outer {
+	background-color: white;
+	padding: 1rem;
+	border-radius: 0.6rem;
+	width: 96%;
+	margin: auto;
+}
+
+.display {
+	margin: auto;
+	background-color: var(--display-color);
+	padding: 0.6rem;
+	font-size: 0.6rem;
+	line-height: 2.2rem;
+}
+
+.top {
+	display: flex;
+	align-items: flex-end;
+	height: 10rem;
+}
+
+.details h2 {
+	font-weight: 300;
+	text-transform: uppercase;
+}
+
+.image-container {
+	width: 11rem;
+	text-align: center;
+}
+
+#description {
+	font-weight: 300;
+	margin-top: 0.6rem;
+	height: 15rem;
+}
+
+.height,
+.weight {
+	margin-right: 0.5rem;
+}
+
+.separator {
+	height: 0.25rem;
+	background-color: black;
+	position: relative;
+}
+
+.separator .left,
+.separator .right {
+	position: absolute;
+	display: flex;
+	justify-content: space-between;
+	gap: 2rem;
+}
+
+.separator .left {
+	left: 1rem;
+}
+
+.separator .right {
+	right: 1rem;
+}
+
+.square {
+	width: 1rem;
+	height: 1rem;
+	border: 0.18rem solid black;
+	background-color: var(--display-color);
+	position: relative;
+	top: -0.37rem;
+}
+
+.square:before {
+	content: '';
+	position: absolute;
+	background-color: #df9466;
+	width: 100%;
+	height: 0.18rem;
+}
+
+.square:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	background-color: #df9466;
+	width: 100%;
+	height: 0.18rem;
+}
+
+.controls {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 87%;
+	margin: 1.25rem auto;
+}
+
+#nameInput {
+	height: 3.75rem;
+	width: 60%;
+	background-color: #375831;
+	font-family: 'Pokemon-GB';
+	outline: none;
+	font-size: 1.2rem;
+	text-transform: uppercase;
+	line-height: 4rem;
+	text-align: center;
+}
+
+.direction-pad {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.direction-pad div:not(.middle-row) {
+	width: 2.25rem;
+	height: 2.25rem;
+	background-color: var(--dpad-color);
+}
+
+.direction-pad .up {
+	border-radius: 0.6rem 0.6rem 0 0;
+}
+
+.direction-pad .down {
+	border-radius: 0 0 0.6rem 0.6rem;
+}
+
+.direction-pad .left {
+	border-radius: 0.6rem 0 0 0.6rem;
+}
+
+.direction-pad .right {
+	border-radius: 0 0.6rem 0.6rem 0;
+}
+
+.middle-row {
+	display: flex;
+}
+
+.direction-pad .left:hover,
+.direction-pad .right:hover {
+	/* background-color: #604752; */
+	cursor: pointer;
+}
+
+.direction-pad:has(.left:hover) {
+	transform: perspective(600px) rotateY(-10deg);
+}
+
+.direction-pad:has(.right:hover) {
+	transform: perspective(600px) rotateY(10deg);
+}
+
+.direction-pad:has(.left:active) {
+	transform: perspective(600px) rotateY(-18deg);
+}
+
+.direction-pad:has(.right:active) {
+	transform: perspective(600px) rotateY(18deg);
+}
+
+.loading {
+	width: 6.25rem;
+	height: 6.25rem;
+	border-radius: 50%;
+	border: 1rem dotted black;
+	animation: spin 1.5s ease-in-out infinite;
+}
+
+@keyframes spin {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+#sprite {
+	height: 6.25rem;
+}

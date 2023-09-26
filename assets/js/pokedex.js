@@ -1,7 +1,7 @@
 let currentId = 1;
 
-const addZeros = numStr => {
-    numStr = numStr.toString();
+const addZeros = num => {
+    numStr = num.toString();
     while (numStr.length < 3) {
         numStr = "0" + numStr;
     }
@@ -39,10 +39,6 @@ const createPokemonDisplay = data => {
     weight.textContent = data.weight / 10;
     height.textContent = data.height / 10;
     sprite.src = data.sprites.versions["generation-v"]["black-white"].animated.front_default ?? data.sprites.front_default;
-
-
-    const display = document.querySelector(".display");
-
 }
 
 const getPokemonSpecies = pokemon => {
@@ -108,7 +104,7 @@ leftBtn.addEventListener('click', function () {
 });
 
 rightBtn.addEventListener('click', function () {
-    if (currentId < 1010) {
+    if (currentId < 1010) { // TODO: update this if more Pokemon get added
         currentId++;
         getPokemonData(currentId);
         getPokemonSpecies(currentId);
